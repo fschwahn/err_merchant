@@ -1,0 +1,2 @@
+module ErrMerchant
+end
