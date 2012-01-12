@@ -1,4 +1,6 @@
 class ErrMerchant::ErrorsController < ApplicationController
+  skip_authorization_check if defined?(::CanCan)
+  
   ERRORS = {
     :internal_server_error => 500,
     :not_found => 404,
