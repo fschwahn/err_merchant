@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resources :failures, :only => [:index, :show, :edit]
+  match ':controller(/:action(/:id(.:format)))'
 end

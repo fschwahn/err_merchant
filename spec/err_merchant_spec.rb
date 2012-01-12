@@ -1,25 +1,38 @@
 require 'spec_helper'
 
 describe 'ErrMerchant' do
-  it 'raises a 500 when an exception is raised' do
-    visit '/failures'
+  it 'shows a 500 when an exception is raised' do
+    visit '/failures/wild_error'
 
     page.should have_content("We're sorry, but something went wrong.")
     page.status_code.should == 500
   end
   
-  it 'raises a 404 when record not found' do
-    visit '/failures/2/edit'
+  it 'shows a 404 when record not found' do
+    visit '/failures/where_is_it'
     
     page.should have_content("The page you were looking for doesn't exist.")
     page.status_code.should == 404
   end
 
-  it 'raises a 422 when an unprocessable entity is encountered' do
-    visit '/failures/1'
+  it 'shows a 422 when an unprocessable entity is encountered' do
+    visit '/failures/dont_process_this'
 
     page.should have_content("The change you wanted was rejected.")
     page.status_code.should == 422
+  end
+
+  it 'shows the error in the application layout' do
+    visit '/failures/wild_error'
+
+    page.should have_content("ErrMerchant Test Application")
+  end
+
+  it 'does not kick in if there is not errors' do
+    visit '/failures/usual_action'
+
+    page.should have_content("This is a usual action.")
+    page.status_code.should == 200
   end
 
 end

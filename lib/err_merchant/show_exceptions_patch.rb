@@ -8,7 +8,7 @@ module ErrMerchant
 
     private
       def render_exception_with_template(env, exception)
-        body = ErrorsController.action(rescue_responses[exception.class.name]).call(env)
+        body = ErrMerchant::ErrorsController.action(rescue_responses[exception.class.name]).call(env)
         log_error(exception)
         body
       rescue

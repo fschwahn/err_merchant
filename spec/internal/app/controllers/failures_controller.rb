@@ -1,13 +1,16 @@
-class FailuresController < ActionController::Base
-  def index
+class FailuresController < ApplicationController
+  def usual_action
+  end
+  
+  def wild_error
     raise
   end
   
-  def show
-    raise ActiveRecord::RecordNotSaved
-  end
-  
-  def edit
+  def where_is_it
     raise ActiveRecord::RecordNotFound
+  end
+
+  def dont_process_this
+    raise ActiveRecord::RecordNotSaved
   end
 end
