@@ -1,3 +1,4 @@
 .bundle/
 Gemfile.lock
 spec/internal/db/combustion_test.sqlite
+pkg/
