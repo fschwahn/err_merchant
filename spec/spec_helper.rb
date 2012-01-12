@@ -5,6 +5,7 @@ Bundler.require :default, :development
 
 require 'capybara/rspec'
 
+Combustion::Application.config.consider_all_requests_local = false
 Combustion.initialize!
 
 require 'rspec/rails'

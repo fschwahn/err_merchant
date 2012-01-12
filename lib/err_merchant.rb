@@ -1,2 +1,1 @@
-module ErrMerchant
-end
+require 'err_merchant/engine'
