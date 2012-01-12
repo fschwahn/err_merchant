@@ -27,6 +27,7 @@ Please note that there are translations missing in development mode if you don't
 == Changelog
 === 0.1.1
 * fix gemspec
+* add test for fallback to standard rails error pages
 
 === 0.1.0
 * Initial release

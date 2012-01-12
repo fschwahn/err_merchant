@@ -7,10 +7,10 @@ describe 'ErrMerchant' do
     page.should have_content("We're sorry, but something went wrong.")
     page.status_code.should == 500
   end
-  
+
   it 'shows a 404 when record not found' do
     visit '/failures/where_is_it'
-    
+
     page.should have_content("The page you were looking for doesn't exist.")
     page.status_code.should == 404
   end
@@ -40,6 +40,17 @@ describe 'ErrMerchant' do
     visit '/failures/wild_error'
 
     page.should have_content("We're sorry, but something went wrong.")
+  end
+
+  it 'falls back to standard error pages if everything goes wrong' do
+    ErrMerchant::ErrorsController.class_eval do
+      layout "erroneous"
+    end
+
+    visit '/failures/wild_error'
+    page.should have_content("We're sorry, but something went wrong.")
+    page.status_code.should == 500
+    page.should have_css('div.dialog h1')
   end
 
 end
