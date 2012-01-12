@@ -6,22 +6,21 @@ Add the gem to your Gemfile, run +bundle install+ and restart your server:
 
   gem 'err_merchant'
 
-This is it. If you want to test +err_merchant+ in development mode, make sure to set +config.consider_all_requests_local+ to +false+ and restart your development server.
+This is it. If you want to check the error pages in development mode, make sure to set +config.consider_all_requests_local+ to +false+ and restart your development server.
 
 == I18n
 You can translate the error messages, by default they are the same as the standard Rails errors:
 
-  en:
-    err_merchant:
-      '404':
-        title: "The page you were looking for doesn't exist."
-        description: "You may have mistyped the address or the page may have moved."
-      '422':
-        title: "The change you wanted was rejected."
-        description: "Maybe you tried to change something you didn't have access to."
-      '500':
-        title: "We're sorry, but something went wrong."
-        description: "We've been notified about this issue and we'll take a look at it shortly."
+  err_merchant:
+    '404':
+      title: "The page you were looking for doesn't exist."
+      description: "You may have mistyped the address or the page may have moved."
+    '422':
+      title: "The change you wanted was rejected."
+      description: "Maybe you tried to change something you didn't have access to."
+    '500':
+      title: "We're sorry, but something went wrong."
+      description: "We've been notified about this issue and we'll take a look at it shortly."
 
 Please note that there are +translation missing+-errors in development mode if you don't supply translations for your locale. In production however, +config.i18n.fallbacks+ is usually set to +true+, so the english error message will be shown if the lookup is unsuccessful.
 
