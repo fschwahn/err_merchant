@@ -13,7 +13,7 @@ class ErrMerchant::ErrorsController < ApplicationController
   ERRORS.each do |e, status_code|
     define_method e do
       respond_to do |format|
-        format.html { render 'template', :locals => {:status_code => status_code}, :status => e }
+        format.html { render 'template', :locals => {:status_code => status_code}, :layout => ErrMerchant.layout, :status => e }
         format.any { head e }
       end
     end

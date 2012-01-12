@@ -43,13 +43,12 @@ describe 'ErrMerchant' do
   end
 
   it 'falls back to standard error pages if everything goes wrong' do
-    ErrMerchant::ErrorsController.class_eval do
-      layout "erroneous"
-    end
+    ErrMerchant.layout = "erroneous"
 
     visit '/failures/wild_error'
     page.should have_content("We're sorry, but something went wrong.")
     page.status_code.should == 500
+    page.should_not have_css('div.err_merchant')
     page.should have_css('div.dialog h1')
   end
 
