@@ -1,5 +1,5 @@
 = err_merchant
-This is a very simple Rails Engine for replacing the standard (ugly) Rails exception pages, with pages which are rendered in your layout. There are several gems out there that do the same, but this one takes the approach proposed by AccUser[http://accuser.cc/posts/1-rails-3-0-exception-handling]. I just made a gem out of it because I use it in every project.
+This is a very simple Rails Engine for replacing the standard (ugly) Rails exception pages with pages which are rendered in your layout. There are several gems out there that do the same, but this one takes the approach proposed by AccUser[http://accuser.cc/posts/1-rails-3-0-exception-handling]. I just made a gem out of it because I use it in every project.
 
 == Installation
 Add the gem to your Gemfile, run `bundle install` and restart your server:
@@ -7,6 +7,12 @@ Add the gem to your Gemfile, run `bundle install` and restart your server:
   gem 'err_merchant'
 
 This is it. If you want to check the error pages in development mode, make sure to set +config.consider_all_requests_local+ to +false+ and restart your development server.
+
+=== Should I keep the standard Rails error pages around?
+Yes, these files are used as a fallback if +err_merchant+ itself raises an exception. This can happen if there is an error in your application layout.
+
+== Configuration
+* +ErrMerchant.layout+: Can be used to set the layout for the error pages. By default the application-layout is used.
 
 == I18n
 You can translate the error messages, by default they are the same as the standard Rails errors:
@@ -22,7 +28,7 @@ You can translate the error messages, by default they are the same as the standa
       title: "We're sorry, but something went wrong."
       description: "We've been notified about this issue and we'll take a look at it shortly."
 
-Please note that there are translations missing in development mode if you don't supply translations for your locale. In production however, +config.i18n.fallbacks+ is usually set to +true+, so the english error message will be shown if the lookup is unsuccessful.
+Please note that there are translations missing in development mode if you don't supply translations for your locale. In production however, +config.i18n.fallbacks+ is usually set to +true+, so the error messages for the default locale will be shown if the lookup is not successful.
 
 == Changelog
 === 0.1.2
