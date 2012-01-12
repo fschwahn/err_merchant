@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "Rails Engine for rendering error pages"
   s.description = "Rails Engine for rendering error pages"
 
-  s.files = Dir["{lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{lib,app,config}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["spec/**/*"]
 
   s.add_dependency "rails", "~> 3.1"

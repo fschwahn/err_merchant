@@ -25,6 +25,9 @@ You can translate the error messages, by default they are the same as the standa
 Please note that there are translations missing in development mode if you don't supply translations for your locale. In production however, +config.i18n.fallbacks+ is usually set to +true+, so the english error message will be shown if the lookup is unsuccessful.
 
 == Changelog
+=== 0.1.1
+* fix gemspec
+
 === 0.1.0
 * Initial release
 
