@@ -7,11 +7,7 @@ require 'capybara/rspec'
 
 Combustion::Application.config.consider_all_requests_local = false
 Combustion::Application.config.i18n.fallbacks = true
-Combustion.initialize!
+Combustion.initialize! :action_controller, :action_view
 
 require 'rspec/rails'
 require 'capybara/rails'
-
-RSpec.configure do |config|
-  config.use_transactional_fixtures = true
-end
