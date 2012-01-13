@@ -34,9 +34,16 @@ describe 'ErrMerchant' do
     page.should have_content("This is a usual action.")
     page.status_code.should == 200
   end
+
+  it 'shows translated error messages if available' do
+    I18n.locale = :de
+    visit '/failures/where_is_it'
+
+    page.should have_content("Seite nicht gefunden")
+  end
   
   it 'shows english error message when no translation available' do
-    I18n.locale = :de
+    I18n.locale = :fr
     visit '/failures/wild_error'
 
     page.should have_content("We're sorry, but something went wrong.")
@@ -52,4 +59,8 @@ describe 'ErrMerchant' do
     page.should have_css('div.dialog h1')
   end
 
+  it 'should deliver airbrake notifications' do
+    Airbrake.should_receive(:notify_or_ignore)
+    visit '/failures/wild_error'
+  end
 end
