@@ -1,6 +1,6 @@
 = err_merchant
 
-{<img src="https://secure.travis-ci.org/plataformatec/devise.png" />}[http://travis-ci.org/plataformatec/devise]
+{<img src="https://secure.travis-ci.org/fschwahn/err_merchant.png" />}[http://travis-ci.org/fschwahn/err_merchant]
 
 This is a very simple Rails Engine for replacing the standard (ugly) Rails exception pages with pages which are rendered in your layout. There are several gems out there that do the same, but this one takes the approach proposed by AccUser[http://accuser.cc/posts/1-rails-3-0-exception-handling]. I just made a gem out of it because I use it in every project. This solution works seamlessly with Airbrake[http://airbrake.io/].
 
