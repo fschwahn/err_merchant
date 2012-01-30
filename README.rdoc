@@ -34,15 +34,18 @@ You can translate the error messages, by default they are the same as the standa
 Please note that there are translations missing in development mode if you don't supply translations for your locale. In production however, +config.i18n.fallbacks+ is usually set to +true+, so the error messages for the default locale will be shown if the lookup is not successful.
 
 == Changelog
-=== 0.1.2
+=== 0.2.0 (2012-01-30)
+* only supports rails 3.2 (code cleanup)
+
+=== 0.1.2 (2012-01-12)
 * added configuration option for layout
 
-=== 0.1.1
+=== 0.1.1 (2012-01-12)
 * fix gemspec
 * add test for fallback to standard rails error pages
 * fix issue with CanCan
 
-=== 0.1.0
+=== 0.1.0 (2012-01-11)
 * Initial release
 
 == License

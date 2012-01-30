@@ -41,7 +41,7 @@ describe 'ErrMerchant' do
 
     page.should have_content("Seite nicht gefunden")
   end
-  
+
   it 'shows english error message when no translation available' do
     I18n.locale = :fr
     visit '/failures/wild_error'
