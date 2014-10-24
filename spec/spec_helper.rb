@@ -1,13 +1,14 @@
 require 'rubygems'
-require 'bundler'
+require 'bundler/setup'
 
-Bundler.require :default, :development
-
+require 'combustion'
 require 'capybara/rspec'
 
-Combustion::Application.config.consider_all_requests_local = false
-Combustion::Application.config.i18n.fallbacks = true
-Combustion.initialize! :active_record, :action_controller, :action_view
+Combustion.initialize! :all do
+  config.action_dispatch.show_exceptions = true
+  config.consider_all_requests_local = false
+  config.i18n.fallbacks = true
+end
 
 require 'rspec/rails'
 require 'capybara/rails'
