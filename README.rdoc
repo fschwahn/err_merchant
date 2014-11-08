@@ -35,6 +35,7 @@ Please note that there are translations missing in development mode if you don't
 
 == Changelog
 === 0.3.1 (2014-11-08)
+* works with `pundit` now
 * show error messages raw
 
 === 0.3.0 (2014-10-24)
