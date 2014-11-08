@@ -34,6 +34,9 @@ You can translate the error messages, by default they are the same as the standa
 Please note that there are translations missing in development mode if you don't supply translations for your locale. In production however, +config.i18n.fallbacks+ is usually set to +true+, so the error messages for the default locale will be shown if the lookup is not successful.
 
 == Changelog
+=== 0.3.1 (2014-11-08)
+* show error messages raw
+
 === 0.3.0 (2014-10-24)
 * compatible with rails 4
 
