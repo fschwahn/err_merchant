@@ -58,10 +58,4 @@ describe 'ErrMerchant' do
     page.should_not have_css('div.err_merchant')
     page.should have_css('div.dialog h1')
   end
-
-  it 'should deliver airbrake notifications' do
-    skip
-    Airbrake.should_receive(:notify_or_ignore)
-    visit '/failures/wild_error'
-  end
 end
