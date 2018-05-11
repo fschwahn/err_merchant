@@ -8,7 +8,13 @@ Combustion.initialize! :all do
   config.action_dispatch.show_exceptions = true
   config.consider_all_requests_local = false
   config.i18n.fallbacks = true
+  config.i18n.enforce_available_locales = false
 end
 
 require 'rspec/rails'
 require 'capybara/rails'
+
+RSpec.configure do |c|
+  c.expose_current_running_example_as :example
+  c.infer_spec_type_from_file_location!
+end

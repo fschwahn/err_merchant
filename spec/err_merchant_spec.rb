@@ -60,7 +60,7 @@ describe 'ErrMerchant' do
   end
 
   it 'should deliver airbrake notifications' do
-    pending
+    skip
     Airbrake.should_receive(:notify_or_ignore)
     visit '/failures/wild_error'
   end

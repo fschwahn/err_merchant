@@ -8,6 +8,5 @@ module ErrMerchant
     rescue
       ActionDispatch::PublicExceptions.new(Rails.root.join('public')).call(env)
     end
-
   end
 end
