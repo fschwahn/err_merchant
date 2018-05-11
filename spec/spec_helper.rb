@@ -17,4 +17,5 @@ require 'capybara/rails'
 RSpec.configure do |c|
   c.expose_current_running_example_as :example
   c.infer_spec_type_from_file_location!
+  c.expect_with(:rspec) { |c| c.syntax = :should }
 end
