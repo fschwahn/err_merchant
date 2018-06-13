@@ -28,6 +28,13 @@ describe 'ErrMerchant' do
     page.should have_content("ErrMerchant Test Application")
   end
 
+  it 'does not error in case a before_action raises' do
+    visit '/failures/where_is_it?raise_error=true'
+
+    page.should have_content("The page you were looking for doesn't exist.")
+    page.status_code.should == 404
+  end
+
   it 'does not kick in if there are no errors' do
     visit '/failures/usual_action'
 

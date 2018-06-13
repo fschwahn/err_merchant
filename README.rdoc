@@ -34,6 +34,10 @@ You can translate the error messages, by default they are the same as the standa
 Please note that there are translations missing in development mode if you don't supply translations for your locale. In production however, +config.i18n.fallbacks+ is usually set to +true+, so the error messages for the default locale will be shown if the lookup is not successful.
 
 == Changelog
+=== unreleased
+* Relax rails requirements
+* Remove special cases for CanCan / Pundit, instead inherit from ActionController::Base (so we don't get any before_action we don't like)
+
 === 0.3.1 (2014-11-08)
 * works with `pundit` now
 * show error messages raw
