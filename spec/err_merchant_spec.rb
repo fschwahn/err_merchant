@@ -49,13 +49,6 @@ describe 'ErrMerchant' do
     page.should have_content("Seite nicht gefunden")
   end
 
-  it 'shows english error message when no translation available' do
-    I18n.locale = :fr
-    visit '/failures/wild_error'
-
-    page.should have_content("We're sorry, but something went wrong.")
-  end
-
   it 'falls back to standard error pages if everything goes wrong' do
     ErrMerchant.layout = "erroneous"
 
