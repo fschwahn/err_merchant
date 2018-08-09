@@ -1,4 +1,8 @@
-class ErrMerchant::ErrorsController < ActionController::Base
+class ErrMerchant::ErrorsController < ::ApplicationController
+  ErrMerchant.skip_filters.each do |filter_type, filters|
+    send(:"skip_#{filter_type}_action", *filters) if filters.any?
+  end
+
   ERRORS = {
     internal_server_error: 500,
     not_found: 404,

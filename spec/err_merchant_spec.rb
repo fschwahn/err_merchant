@@ -28,7 +28,7 @@ describe 'ErrMerchant' do
     page.should have_content("ErrMerchant Test Application")
   end
 
-  it 'does not error in case a before_action raises' do
+  it 'does respect the ErrMerchant.skip_filters' do
     visit '/failures/where_is_it?raise_error=true'
 
     page.should have_content("The page you were looking for doesn't exist.")

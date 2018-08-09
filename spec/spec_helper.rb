@@ -18,3 +18,5 @@ RSpec.configure do |c|
   c.infer_spec_type_from_file_location!
   c.expect_with(:rspec) { |c| c.syntax = :should }
 end
+
+ErrMerchant.skip_filters[:before] = [:raise_error]

@@ -7,4 +7,9 @@ class ApplicationController < ActionController::Base
     def raise_error
       raise RandomException if params[:raise_error] && is_a?(ErrMerchant::ErrorsController)
     end
+
+    def app_title
+      "ErrMerchant Test Application"
+    end
+    helper_method :app_title
 end
