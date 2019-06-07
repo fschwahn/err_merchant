@@ -20,9 +20,9 @@ Gem::Specification.new do |spec|
   end
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'rails', '>= 5.0', '< 6'
+  spec.add_dependency 'rails', '>= 5.0', '< 6.1'
   spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'combustion', '~> 0.9.1'
+  spec.add_development_dependency 'combustion'
   spec.add_development_dependency 'sqlite3'
   spec.add_development_dependency 'rspec-rails', '~> 3.0'
   spec.add_development_dependency 'capybara', '>= 2.2'
