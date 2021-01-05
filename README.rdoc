@@ -33,7 +33,7 @@ You can translate the error messages, by default they are the same as the standa
 Please note that there are translations missing in development mode if you don't supply translations for your locale. In production however, +config.i18n.fallbacks+ is usually set to +true+, so the error messages for the default locale will be shown if the lookup is not successful.
 
 == Changelog
-=== unreleased
+=== 0.7.0 (2021-01-05)
 * Disable CSRF in ErrorsController
 * Drop support for rails < 5.2
 
