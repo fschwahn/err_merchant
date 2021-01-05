@@ -8,6 +8,7 @@ Combustion.initialize! :all do
   config.action_dispatch.show_exceptions = true
   config.consider_all_requests_local = false
   config.i18n.enforce_available_locales = false
+  config.action_controller.allow_forgery_protection = true
 end
 
 require 'rspec/rails'

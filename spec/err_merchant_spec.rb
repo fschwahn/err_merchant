@@ -44,9 +44,11 @@ describe 'ErrMerchant' do
 
   it 'shows translated error messages if available' do
     I18n.locale = :de
-    visit '/failures/where_is_it'
 
+    visit '/failures/where_is_it'
     page.should have_content("Seite nicht gefunden")
+
+    I18n.locale = :en
   end
 
   it 'falls back to standard error pages if everything goes wrong' do
@@ -57,5 +59,23 @@ describe 'ErrMerchant' do
     page.status_code.should == 500
     page.should_not have_css('div.err_merchant')
     page.should have_css('div.dialog h1')
+
+    ErrMerchant.layout = "application"
+  end
+
+  it 'shows an error on failed forgery protection' do
+    visit '/failures/usual_action'
+    click_button "csrf_error"
+
+    page.status_code.should == 422
+    page.should have_content("The change you wanted was rejected.")
+  end
+
+  it "does not try to verify authenticity tokens" do
+    visit '/failures/usual_action'
+    click_button "post_error"
+
+    page.status_code.should == 500
+    page.should have_content("We're sorry, but something went wrong.")
   end
 end

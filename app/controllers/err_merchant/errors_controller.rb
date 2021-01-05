@@ -2,6 +2,7 @@ class ErrMerchant::ErrorsController < ::ApplicationController
   ErrMerchant.skip_filters.each do |filter_type, filters|
     send(:"skip_#{filter_type}_action", *filters) if filters.any?
   end
+  skip_forgery_protection
 
   ERRORS = {
     internal_server_error: 500,

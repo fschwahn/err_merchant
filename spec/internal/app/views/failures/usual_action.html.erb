@@ -1,1 +1,10 @@
 <p>This is a usual action.</p>
+
+<form method="post" action="/csrf_error" class="button_to">
+  <input value="csrf_error" type="submit" />
+</form>
+
+<form method="post" action="/post_error" class="button_to">
+  <input name="skip_csrf" value="1" type="hidden" />
+  <input value="post_error" type="submit" />
+</form>

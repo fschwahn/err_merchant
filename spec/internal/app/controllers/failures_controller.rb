@@ -1,4 +1,6 @@
 class FailuresController < ApplicationController
+  skip_forgery_protection(if: -> { params[:skip_csrf] })
+
   def usual_action
   end
 
@@ -11,6 +13,6 @@ class FailuresController < ApplicationController
   end
 
   def dont_process_this
-    raise ActionController::InvalidAuthenticityToken
+    raise ActionController::InvalidCrossOriginRequest
   end
 end
