@@ -37,6 +37,7 @@ Please note that there are translations missing in development mode if you don't
 == Changelog
 === unreleased
 * Disable CSRF in ErrorsController
+* Drop support for rails < 5.2
 
 === 0.6.0 (2019-06-07)
 * Relax version requirement for rails
