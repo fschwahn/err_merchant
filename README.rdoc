@@ -1,7 +1,5 @@
 = err_merchant
 
-{<img src="https://secure.travis-ci.org/fschwahn/err_merchant.png" />}[http://travis-ci.org/fschwahn/err_merchant]
-
 This is a very simple Rails Engine for replacing the standard (ugly) Rails exception pages with pages which are rendered in your layout.
 
 == Installation
