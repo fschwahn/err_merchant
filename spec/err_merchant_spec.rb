@@ -71,11 +71,21 @@ describe 'ErrMerchant' do
     page.should have_content("The change you wanted was rejected.")
   end
 
-  it "does not try to verify authenticity tokens" do
+  it "does not try to verify CSRF tokens when showing error" do
     visit '/failures/usual_action'
     click_button "post_error"
 
     page.status_code.should == 500
     page.should have_content("We're sorry, but something went wrong.")
+  end
+
+  it "does not error if CSRF is not activated" do
+    stub_const("CSRF_ENABLED", false)
+    Rails.application.reloader.reload!
+
+    visit '/failures/where_is_it'
+
+    page.should have_content("The page you were looking for doesn't exist.")
+    page.status_code.should == 404
   end
 end

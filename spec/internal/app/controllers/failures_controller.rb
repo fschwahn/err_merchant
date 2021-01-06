@@ -1,5 +1,5 @@
 class FailuresController < ApplicationController
-  skip_forgery_protection(if: -> { params[:skip_csrf] })
+  skip_forgery_protection(if: -> { params[:skip_csrf] }) if CSRF_ENABLED
 
   def usual_action
   end

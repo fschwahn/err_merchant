@@ -9,6 +9,7 @@ Combustion.initialize! :all do
   config.consider_all_requests_local = false
   config.i18n.enforce_available_locales = false
   config.action_controller.allow_forgery_protection = true
+  config.cache_classes = false
 end
 
 require 'rspec/rails'
