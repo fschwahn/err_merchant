@@ -9,6 +9,7 @@ class ErrMerchant::ErrorsController < ::ApplicationController
     not_found: 404,
     conflict: 409,
     unprocessable_entity: 422,
+    unprocessable_content: 422,
     method_not_allowed: 405,
     not_implemented: 501
   }.freeze
